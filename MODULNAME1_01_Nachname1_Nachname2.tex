@@ -1,0 +1,33 @@
+\documentclass[fontsize=11pt,paper=a4,final]{scrartcl} %draft
+\include{./includes/inc}
+\geometry{a4paper, top=25mm, left=30mm, right=25mm, bottom=30mm, headsep=10mm, footskip=12mm}
+
+%Diese Angaben müssen für jedes Modul geändert werden:
+\newcommand{\theUni}{Universität}
+\newcommand{\theOrt}{Oldenburg}
+\newcommand{\theStudienfach}{Informatik}
+\newcommand{\theModulName}{Modulname}
+\newcommand{\theSemester}{SoSe2009}
+\newcommand{\theTutorArt}{Tutor}% Tutorin, Dozent, Dozentin
+\newcommand{\theTutor}{Peter Muster}
+\newcommand{\theTutoriumArt}{Tutorium}%Tutorium oder Übung
+\newcommand{\theGruppenmitglieder}{Steffen Nachname1\und Vorname Nachname2} %Es können mehrere Gruppenteilnehmer (durch \und getrennt) eingetragen werden. Vor \und kein Leerzeichen.
+\newcommand{\OptionaleAngabe}{} %z.B. Gruppennummer oder Gruppenbuchstabe hier eintragen. a la Gruppe A
+\newcommand{\theDayTut}{Do} %Hier Tag es Tutoriums eintragen. a la Mo, Di, Mi, Do, Fr
+\newcommand{\theZeitBegin}{12} %Hier Anfangszeit des Tutoriums eingeben. a la 08, 09, 10 ... 18, 19 usw.
+\newcommand{\theZeitEnde}{14} %Hier Endzeit des Tutoriums eingeben. a la 09, 10 ... 18, 19, 20 usw.
+\newcommand{\theAbgabeZeit}{10:00} % Uhrzeit bis zu der die Abgabe gemacht werden muss
+
+
+%Diese Angaben müssen für jeden Zettel geändert werden:
+\setcounter{zettelnummer}{1}
+\newcommand{\theAbgabeDatum}{15.05.12}
+
+\begin{document}
+\input{./includes/head_newcommand}
+\input{./aufgaben/1.tex}
+\input{./aufgaben/2.tex}
+%\input{./aufgaben/3.tex}
+%\input{./aufgaben/4.tex}
+\input{./includes/ende}
+\end{document}

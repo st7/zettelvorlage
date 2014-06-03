@@ -1,0 +1,96 @@
+\pagestyle{fancy}
+\AtBeginShipout{\AtBeginShipoutUpperLeft{\put(\dimexpr\paperwidth-3mm\relax,-2cm){\makebox[0pt][r]{
+\textbf{\Large \input{fertigtestfile.tex}}}}}}
+
+%Damit der Text besser zu lesen ist und die Silbentrennung nicht zickt:
+\hbadness=4000
+\tolerance=2000
+\pretolerance=5000
+
+\newcounter{aufgabenummer}
+\newcounter{aufgabenteil}
+\setcounter{aufgabenummer}{0}
+
+\newcounter{subaufgabenummer}
+\setcounter{subaufgabenummer}{0}
+
+\newcommand{\aufgabe}[1]{\addtocounter{aufgabenummer}{1}\section*{\arabic{zettelnummer}.\arabic{aufgabenummer} #1}\setcounter{aufgabenteil}{0}\setcounter{subaufgabenummer}{0}}
+\newcommand{\teil}{\addtocounter{aufgabenteil}{1}\subsection*{Aufgabenteil \alph{aufgabenteil}}\setcounter{subaufgabenummer}{0}}
+
+\newlength{\platz}
+\setlength{\platz}{\widthof{{\footnotesize Quelle:}}+6.252pt}
+\newcommand{\subteil}{\paragraph*{\roman{subaufgabenummer}}\addtocounter{subaufgabenummer}{1}}
+\newcommand{\quelle}[1]{\par{\footnotesize \textbf{Quelle:} \begin{minipage}[t]{\textwidth-\platz}\begin{flushleft}#1\end{flushleft}\end{minipage}}}
+
+\renewcommand{\und}{\ \ }
+\newlength{\ZeileA}
+\newlength{\ZeileB}
+\newlength{\ZeileC}
+\newlength{\ZeileD}
+\newlength{\ZeileE}
+\setlength{\ZeileA}{\widthof{\textbf{\textsf{\theModulName{}}} \theSemester{}}}
+\setlength{\ZeileB}{\widthof{\textbf{\textsf{Zettel \arabic{zettelnummer}}} Abgabe \theAbgabeDatum\ (\theAbgabeZeit\ Uhr)}}
+\setlength{\ZeileC}{\widthof{\theTutoriumArt\ \theDayTut{}. \theZeitBegin\ -- \theZeitEnde\ Uhr bei \theTutor}}
+\setlength{\ZeileD}{\widthof{\theGruppenmitglieder{}}}
+\setlength{\ZeileE}{\widthof{\OptionaleAngabe{}}}
+
+\newlength{\LaengsteZeile}
+\setlength{\LaengsteZeile}{\ZeileA}
+\ifdim\LaengsteZeile<\ZeileB
+\setlength{\LaengsteZeile}{\ZeileB}
+\fi
+\ifdim\LaengsteZeile<\ZeileC
+\setlength{\LaengsteZeile}{\ZeileC}
+\fi
+\ifdim\LaengsteZeile<\ZeileD
+\setlength{\LaengsteZeile}{\ZeileD}
+\fi
+\ifdim\LaengsteZeile<\ZeileE
+\setlength{\LaengsteZeile}{\ZeileE}
+\fi
+
+\renewcommand{\und}{\hfill }
+
+\begin{center}
+\begin{tabular}{|c|}
+\begin{minipage}{\LaengsteZeile}
+\begin{center}
+\textbf{\textsf{\theModulName{}}} \hfill \theSemester{}\\
+\textbf{\textsf{Zettel \arabic{zettelnummer}}} \hfill Abgabe \theAbgabeDatum\ (\theAbgabeZeit\ Uhr)\\
+\theTutoriumArt\ \theDayTut{}. \theZeitBegin\ -- \theZeitEnde\ Uhr \hfill bei \theTutor\vspace*{.5mm} \\
+\theGruppenmitglieder{}\\\OptionaleAngabe{}
+\end{center}
+\end{minipage}
+\end{tabular} 
+\end{center}
+
+\newcounter{todo}
+\setcounter{todo}{0}
+\newcommand{\todo}[1]{\addtocounter{todo}{1}\begin{center}\shadowbox{\begin{minipage}{.7\textwidth}
+\textbf{TODO \arabic{todo}:} #1
+\end{minipage}}\end{center}\setboolean{fertig}{false}}
+
+\newcommand{\tbd}{\marginpar{\begin{flushleft}\begin{footnotesize}
+\fbox{Nicht fertig.}\end{footnotesize}
+\end{flushleft}}\setboolean{fertig}{false}}
+
+\newenvironment{frage}{\begin{small}\begin{itshape}}{\end{itshape}\end{small}\par}
+
+\renewcommand{\und}{ \texorpdfstring{$\cdot$}{, } }
+\fancyhead[L]{\theModulName{} (\theSemester{})}
+\fancyhead[C]{}
+\fancyhead[R]{\theTutorArt\ \theTutor{}}
+\renewcommand{\headrulewidth}{0.4pt}
+\fancyfoot[L]{{\small \theGruppenmitglieder{}}}
+\fancyfoot[C]{}
+\fancyfoot[R]{{\small Seite \thepage{}/\pageref{last}}}
+\renewcommand{\footrulewidth}{0.0pt}
+
+
+\hypersetup{
+    pdftitle={\theModulName{} \theSemester{}},
+    pdfkeywords={\theOrt{}, \theUni{}, \theStudienfach{}, \theModulName{}, \theSemester{}, \theAbgabeDatum, Zettel \arabic{zettelnummer}},
+    pdfauthor={\theGruppenmitglieder{}},
+    pdfsubject={Zettel \arabic{zettelnummer}, \theModulName{} \theSemester{}},
+    pdfcreator={\OptionaleAngabe{}}
+	}

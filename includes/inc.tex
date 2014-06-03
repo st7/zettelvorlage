@@ -1,0 +1,47 @@
+\usepackage[utf8]{inputenc}
+\usepackage[ngerman]{babel}
+\usepackage[T1]{fontenc}
+\usepackage{textcomp}
+\usepackage{amsmath,amssymb,amstext} 
+\usepackage{fancyhdr}
+\usepackage{float}
+\usepackage{graphicx}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}\medskipamount
+\usepackage{multicol}
+\usepackage{fancybox}
+\usepackage{marvosym}
+\usepackage[right]{eurosym}
+\usepackage{geometry}
+\usepackage{enumitem}
+\usepackage{calc}
+\usepackage{ifthen}
+\newcounter{zettelnummer}
+
+\newboolean{fertig}
+\setboolean{fertig}{true}
+
+\newcommand{\und}{}
+\newcommand{\neturl}[3]{\url{#1}\ (Zugriff am #2; #3 Uhr)}
+\newwrite\tempfile
+
+\usepackage{atbegshi,picture}
+
+
+
+\usepackage{hyperref}
+\hypersetup{
+    unicode=true,
+    pdftoolbar=true,
+    pdfmenubar=true,
+    pdffitwindow=true,
+    pdfstartview={FitH},
+    pdfproducer={LaTeX2e},
+    pdfnewwindow=false,
+    colorlinks=true,
+    linkcolor=black,
+    citecolor=black,
+    filecolor=black,
+    urlcolor=black
+}
+\usepackage{url}

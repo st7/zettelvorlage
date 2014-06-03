@@ -1,0 +1,4 @@
+\immediate\openout\tempfile=fertigtestfile.tex
+\ifthenelse{\boolean{fertig}}{\immediate\write\tempfile{}}{\immediate\write\tempfile{Zettel nicht fertig!}}
+\immediate\closeout\tempfile
+\label{last}
